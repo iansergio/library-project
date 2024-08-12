@@ -10,16 +10,18 @@ public class Program {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+
         List<Book> list = new ArrayList<Book>();
         int id = 0;
 
+        // Loop "infinito" para realizar as atividades
         while (true) {
-            System.out.println("--------------------------");
-            System.out.println("Bem vindo(a) a biblioteca! ");
+            System.out.println("> ------------------------");
+            System.out.println("Bem vindo(a) a biblioteca!");
             System.out.println();
             System.out.println("[ 1 ] Adicionar livros");
             System.out.println("[ 2 ] Verificar o acervo");
-            System.out.println("[ 3 ] Sair");
+            System.out.println("[ 3 ] Sair ");
             int response = sc.nextInt();
             sc.nextLine();
             System.out.println();
@@ -27,17 +29,29 @@ public class Program {
             switch (response) {
                 case 1:
                     id = id + 1;
-                    System.out.println("--------------------------");
+                    System.out.println("> ------------------------");
                     System.out.println("Preencha os campos abaixo:");
 
                     System.out.print("Nome do livro: ");
                     String title = sc.nextLine();
 
-                    System.out.print("Autor: ");
+                    System.out.print("Sinopse: ");
+                    String synopsis = sc.nextLine();
+
+                    System.out.print("Autor(a): ");
                     String author = sc.nextLine();
 
-                    Book b = new Book(id, title, author);
+                    System.out.print("Ano de lançamento: ");
+                    int year = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Editora: ");
+                    String publisher = sc.nextLine();
+
+                    Book b = new Book(id, title, synopsis, author, year, publisher);
                     list.add(b);
+                    System.out.println();
+                    System.out.println("Livro adicionado com sucesso!");
                     break;
 
                 case 2:

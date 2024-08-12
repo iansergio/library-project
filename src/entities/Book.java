@@ -3,15 +3,22 @@ package entities;
 public class Book {
     private int id;
     private String title;
+    private String synopsis;
     private String author;
+    private int year;
+    private String publisher;
 
     // Construtor
-    public Book(int id, String title, String author) {
+    public Book(int id, String title, String synopsis, String author, int year, String publisher) {
         this.id = id;
         this.title = title;
         this.author = author;
+        this.publisher = publisher;
+        this.synopsis = synopsis;
+        this.year = year;
     }
 
+    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -28,6 +35,14 @@ public class Book {
         this.title = title;
     }
 
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -36,7 +51,28 @@ public class Book {
         this.author = author;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    // Método toString
     public String toString() {
-        return "[ " + id + " ] " + title + ", " + author;
+        return "[ " + id + " ]" + String.format(" Título: %s%n" +
+                "Autor(a): %s%n" +
+                "%s%n" +
+                "Data de publicação: %s %n" +
+                "Editora: %s%n", title, author, synopsis, year, publisher );
     }
 }

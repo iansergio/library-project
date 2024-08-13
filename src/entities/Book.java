@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
     private int id;
     private String title;
@@ -8,7 +11,9 @@ public class Book {
     private int year;
     private String publisher;
 
-    // Construtor
+    // Construtores
+    public Book(){}
+
     public Book(int id, String title, String synopsis, String author, int year, String publisher) {
         this.id = id;
         this.title = title;
@@ -74,5 +79,12 @@ public class Book {
                 "%s%n" +
                 "Data de publicação: %s %n" +
                 "Editora: %s%n", title, author, synopsis, year, publisher );
+    }
+
+    // Função para remover um livro do acervo
+    public String removeBook(List <Book> list, int code){
+        list.removeIf(book -> book.getId() == code);
+        return "O livro \"" + title + "\" foi removido com sucesso!";
+
     }
 }

@@ -12,16 +12,18 @@ public class Program {
         Scanner sc = new Scanner(System.in);
 
         List<Book> list = new ArrayList<Book>();
+        Book b = new Book();
         int id = 0;
 
         // Loop "infinito" para realizar as atividades
         while (true) {
-            System.out.println("> ------------------------");
+            System.out.println("--------------------------");
             System.out.println("Bem vindo(a) a biblioteca!");
             System.out.println();
-            System.out.println("[ 1 ] Adicionar livros");
+            System.out.println("[ 1 ] Adicionar livro");
             System.out.println("[ 2 ] Verificar o acervo");
-            System.out.println("[ 3 ] Sair ");
+            System.out.println("[ 3 ] Remover livro");
+            System.out.println("[ 4 ] Sair ");
             int response = sc.nextInt();
             sc.nextLine();
             System.out.println();
@@ -29,7 +31,7 @@ public class Program {
             switch (response) {
                 case 1:
                     id = id + 1;
-                    System.out.println("> ------------------------");
+                    System.out.println("--------------------------");
                     System.out.println("Preencha os campos abaixo:");
 
                     System.out.print("Nome do livro: ");
@@ -48,7 +50,7 @@ public class Program {
                     System.out.print("Editora: ");
                     String publisher = sc.nextLine();
 
-                    Book b = new Book(id, title, synopsis, author, year, publisher);
+                    b = new Book(id, title, synopsis, author, year, publisher);
                     list.add(b);
                     System.out.println();
                     System.out.println("Livro adicionado com sucesso!");
@@ -60,12 +62,19 @@ public class Program {
                         System.out.println("------------------");
                     } else {
                         for (Book book : list) {
-                            System.out.println(book);
+                            System.out.print(book);
                         }
                     }
                     break;
 
                 case 3:
+                    System.out.print("Código do livro a ser removido: ");
+                    int code = sc.nextInt();
+                    System.out.println();
+                    System.out.println(b.removeBook(list, code));
+                    break;
+
+                case 4:
                     System.out.println("Até breve!");
                     System.out.println("----------");
                     sc.close();

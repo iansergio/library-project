@@ -35,13 +35,10 @@ public class Program {
                     System.out.println("Preencha os campos abaixo:");
 
                     System.out.print("Nome do livro: ");
-                    String title = sc.nextLine();
+                    String name = sc.nextLine();
 
                     System.out.print("Sinopse: ");
                     String synopsis = sc.nextLine();
-
-                    System.out.print("Autor(a): ");
-                    String author = sc.nextLine();
 
                     System.out.print("Ano de lançamento: ");
                     int year = sc.nextInt();
@@ -50,7 +47,7 @@ public class Program {
                     System.out.print("Editora: ");
                     String publisher = sc.nextLine();
 
-                    b = new Book(id, title, synopsis, author, year, publisher);
+                    b = new Book(id, name, synopsis, year, publisher);
                     list.add(b);
                     System.out.println();
                     System.out.println("Livro adicionado com sucesso!");

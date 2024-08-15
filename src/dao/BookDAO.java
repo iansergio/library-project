@@ -18,7 +18,7 @@ public class BookDAO extends ConnectionDAO{
 
         try(Connection connection = connection();
             PreparedStatement stat = connection().prepareStatement(sql)){
-            stat.setString(1, book.getTitle());
+            stat.setString(1, book.getName());
             stat.setString(2, book.getSynopsis());
             stat.setInt(3, book.getYear());
             stat.setString(4, book.getPublisher());
@@ -48,7 +48,7 @@ public class BookDAO extends ConnectionDAO{
                 Book book = new Book();
 
                 book.setId(res.getInt("id_livro"));
-                book.setTitle(res.getString("nome"));
+                book.setName(res.getString("nome"));
                 book.setSynopsis(res.getString("sinopse"));
                 book.setYear(res.getInt("ano"));
                 book.setPublisher(res.getString("editora"));

@@ -5,19 +5,17 @@ import java.util.List;
 
 public class Book {
     private int id;
-    private String title;
+    private String name;
     private String synopsis;
-    private String author;
     private int year;
     private String publisher;
 
     // Construtores
     public Book(){}
 
-    public Book(int id, String title, String synopsis, String author, int year, String publisher) {
+    public Book(int id, String name, String synopsis, int year, String publisher) {
         this.id = id;
-        this.title = title;
-        this.author = author;
+        this.name = name;
         this.publisher = publisher;
         this.synopsis = synopsis;
         this.year = year;
@@ -32,12 +30,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSynopsis() {
@@ -46,14 +44,6 @@ public class Book {
 
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public int getYear() {
@@ -75,16 +65,15 @@ public class Book {
     // Método toString
     public String toString() {
         return "[ " + id + " ]" + String.format(" Título: %s%n" +
-                "Autor(a): %s%n" +
                 "%s%n" +
                 "Data de publicação: %s %n" +
-                "Editora: %s%n", title, author, synopsis, year, publisher );
+                "Editora: %s%n", name, synopsis, year, publisher);
     }
 
     // Função para remover um livro do acervo
     public String removeBook(List <Book> list, int code){
         list.removeIf(book -> book.getId() == code);
-        return "O livro \"" + title + "\" foi removido com sucesso!";
+        return "O livro \"" + name + "\" foi removido com sucesso!";
 
     }
 }
